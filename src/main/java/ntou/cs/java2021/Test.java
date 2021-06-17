@@ -11,8 +11,22 @@ public class Test {
             FoodHandler handler = new FoodHandler();
             handler.initialize();
             List<Pharmacy> filteredClinicList = handler.findPharmacies("旗魚腹肉");
-            System.out.println(filteredClinicList);
-
+            for(Pharmacy i : filteredClinicList) {
+                if (i.getAnalysis().equals("糖質總量"))
+                    System.out.println(i);
+                if (i.getAnalysis().equals("粗脂肪"))
+                    System.out.println(i);
+                if (i.getAnalysis().equals("粗蛋白"))
+                    System.out.println(i);
+                if (i.getAnalysis().equals("飽和脂肪"))
+                    System.out.println(i);
+                if (i.getAnalysis().equals("反式脂肪"))
+                    System.out.println(i);
+                if (i.getAnalysis().equals("熱量"))
+                    System.out.println(i);
+                if (i.getAnalysis().equals("總碳水化合物"))
+                    System.out.println(i);
+            }
         } catch (IOException | URISyntaxException e) {
             // TODO Auto-generated catch block
             System.err.println(e);
