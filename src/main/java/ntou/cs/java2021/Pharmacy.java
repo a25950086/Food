@@ -157,7 +157,7 @@ public class Pharmacy {
 
     @Override
     public String toString() {
-        return "Pharmacy [foodClassification=" + foodClassification + ", dataCategory=" + dataCategory + ", name=" + name
+        return "Pharmacy [foodClassification=" + foodClassification + ", dataCategory=" + dataCategory + ", id=" + id + ", name=" + name
                 + ". analysisClassification=" + analysisClassification + ". analysis=" + analysis + ". unit=" + unit
                 + ". content=" + content + ". numberOfSamples=" + numberOfSamples + ". standardDeviation=" + standardDeviation
                 + ". contentPerUnit=" + contentPerUnit + ". weightPerUnit=" + weightPerUnit + ". weightContentPerUnit=" + weightContentPerUnit
