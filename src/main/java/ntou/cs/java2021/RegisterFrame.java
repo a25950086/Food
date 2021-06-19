@@ -21,8 +21,16 @@ public class RegisterFrame extends JFrame implements ActionListener {
     private JPasswordField pfPassword2=new JPasswordField(10);
     private JLabel lbName=new JLabel("請您輸入姓名");
     private JTextField tfName=new JTextField(10);
-    private JLabel lbFood=new JLabel("請您輸入食物");
-    private JTextField cbFood=new JTextField(10);
+    private JLabel lbGender=new JLabel("請您輸入性別");
+    private JTextField tfGender=new JTextField(10);
+    private JLabel lbAge=new JLabel("請您輸入年齡");
+    private JTextField tfAge=new JTextField(10);
+    private JLabel lbHeight=new JLabel("請您輸入身高");
+    private JTextField tfHeight=new JTextField(10);
+    private JLabel lbWeight=new JLabel("請您輸入體重");
+    private JTextField tfWeight=new JTextField(10);
+    /*private JLabel lbFood=new JLabel("請您輸入食物");
+    private JTextField cbFood=new JTextField(10);*/
 
     private JButton btRegister=new JButton("註冊");
     private JButton btLogin=new JButton("登錄");
@@ -39,8 +47,16 @@ public class RegisterFrame extends JFrame implements ActionListener {
         this.add(pfPassword2);
         this.add(lbName);
         this.add(tfName);
-        this.add(lbFood);
-        this.add(cbFood);
+        this.add(lbGender);
+        this.add(tfGender);
+        this.add(lbAge);
+        this.add(tfAge);
+        this.add(lbHeight);
+        this.add(tfHeight);
+        this.add(lbWeight);
+        this.add(tfWeight);
+        /*this.add(lbFood);
+        this.add(cbFood);*/
         /*cbDept.addItem("財務部");
         cbDept.addItem("行政部");
         cbDept.addItem("客服服務部");
@@ -48,7 +64,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
         this.add(btRegister);
         this.add(btLogin);
         this.add(btExit);
-        this.setSize(240,220);
+        this.setSize(240,300);
         GUIUtil.toCenter(this);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
@@ -73,8 +89,11 @@ public class RegisterFrame extends JFrame implements ActionListener {
                 return;
             }
             String name=tfName.getText();
-            String dept=(String)cbFood.getText();
-            FileOpe.updateCustomer(account,password1,name,dept);
+            String gender=(String)tfGender.getText();
+            String age=(String)tfAge.getText();
+            String height=(String)tfHeight.getText();
+            String weight=(String)tfWeight.getText();
+            FileOpe.updateCustomer(account,password1,name,gender,age,height,weight);
             JOptionPane.showMessageDialog(this,"註冊成功");
         }
         else if(e.getSource()==btLogin) {

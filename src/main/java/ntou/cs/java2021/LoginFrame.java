@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 /*登錄界面*/
 public class LoginFrame extends JFrame implements ActionListener {
     /****************************定義各控制項**************************/
-    private Icon welcomeIcon=new ImageIcon("D://Applications//JetBrains//IdeaProjects//src//ntou//cs//java2021//UserManageSystem//welcome.png");
+    private Icon welcomeIcon=new ImageIcon("D://Applications//JetBrains//Food//src//main//java//ntou//cs//java2021//welcome.png");
     private JLabel lbWelcome=new JLabel(welcomeIcon);
     private JLabel lbAccount=new JLabel("請您輸入帳號");
     private JTextField tfAccount=new JTextField(10);
