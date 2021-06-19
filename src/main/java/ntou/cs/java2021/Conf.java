@@ -8,5 +8,5 @@ public class Conf {
     public static String age;
     public static String height;
     public static String weight;
-    //public static String food;      //保存登錄用戶的食物
+    public static String food;      //保存登錄用戶的食物
 }

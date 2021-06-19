@@ -27,13 +27,13 @@ public class ModifyDialog extends JDialog implements ActionListener {
     private JLabel lbName = new JLabel("請您修改姓名");
     private JTextField tfName = new JTextField(Conf.name, 10);
     private JLabel lbGender = new JLabel("請您修改性別");
-    private JTextField tfGender = new JTextField(Conf.name, 10);
+    private JTextField tfGender = new JTextField(Conf.gender, 10);
     private JLabel lbAge = new JLabel("請您修改年齡");
-    private JTextField tfAge = new JTextField(Conf.name, 10);
+    private JTextField tfAge = new JTextField(Conf.age, 10);
     private JLabel lbHeight = new JLabel("請您修改身高");
-    private JTextField tfHeight = new JTextField(Conf.name, 10);
+    private JTextField tfHeight = new JTextField(Conf.height, 10);
     private JLabel lbWeight = new JLabel("請您修改體重");
-    private JTextField tfWeight = new JTextField(Conf.name, 10);
+    private JTextField tfWeight = new JTextField(Conf.weight, 10);
     /*private JLabel lbFood = new JLabel("請您修改食物");
     private JTextField cbFood = new JTextField(Conf.food,10);*/
 
@@ -43,7 +43,7 @@ public class ModifyDialog extends JDialog implements ActionListener {
     public ModifyDialog(JFrame frm) {
         /***********************界面初始化***************************/
         super(frm, true);
-        this.setLayout(new GridLayout(6, 2));
+        this.setLayout(new GridLayout(9, 1));
         this.add(lbMsg);
         this.add(lbAccount);
         this.add(lbPassword);
@@ -69,7 +69,7 @@ public class ModifyDialog extends JDialog implements ActionListener {
         cbFood.setSelectedItem(Conf.food);*/
         this.add(btModify);
         this.add(btExit);
-        this.setSize(240, 250);
+        this.setSize(240, 300);
         GUIUtil.toCenter(this);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         /*******************增加監聽*******************************/

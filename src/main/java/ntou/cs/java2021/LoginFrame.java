@@ -55,7 +55,7 @@ public class LoginFrame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this,"登錄失敗");
                 return;
             }
-            JOptionPane.showMessageDialog(this,"登錄成功");
+            //JOptionPane.showMessageDialog(this,"登錄成功");
             this.dispose();
             new OperationFrame();
         }
