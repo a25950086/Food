@@ -90,6 +90,13 @@ public class DailyEnergyRecoder {
 
     public void add(FoodData foodData){
         list.add(foodData);
+        this.calories += foodData.getCalories();
+        this.protein += foodData.getProtein();
+        this.carbohydrates += foodData.getCarbohydrates();
+        this.fat += foodData.getFat();
+        this.saturatedFat += foodData.getSaturatedFat();
+        this.transFat += foodData.getTransFat();
+        this.sugar += foodData.getSugar();
     }
     public void delete(FoodData foodData){
         for(int i = 0; i < list.size(); i++){
