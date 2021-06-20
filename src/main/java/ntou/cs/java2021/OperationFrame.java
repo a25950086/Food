@@ -39,7 +39,11 @@ public class OperationFrame extends JFrame implements ActionListener {
             String message="您的詳細資料為:\n";
             message+="帳號："+Conf.account+"\n";
             message+="姓名："+Conf.name+"\n";
-            message+="食物："+Conf.food+"\n";
+            message+="性別："+Conf.gender+"\n";
+            message+="年齡："+Conf.age+"\n";
+            message+="身高："+Conf.height+"(cm)"+"\n";
+            message+="體重："+Conf.weight+"(kg)"+"\n";
+            //message+="食物："+Conf.food+"\n";
             JOptionPane.showMessageDialog(this,message);
         }
         else if(e.getSource()==btModify) {
