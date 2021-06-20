@@ -100,8 +100,17 @@ public class DailyEnergyRecoder {
     }
     public void delete(FoodData foodData){
         for(int i = 0; i < list.size(); i++){
-            if(foodData.equals(list.get(i)))
+            if(foodData.equals(list.get(i))) {
+                this.calories -= list.get(i).getCalories();
+                this.protein -= list.get(i).getProtein();
+                this.carbohydrates -= list.get(i).getCarbohydrates();
+                this.fat -= list.get(i).getFat();
+                this.saturatedFat -= list.get(i).getSaturatedFat();
+                this.transFat -= list.get(i).getTransFat();
+                this.sugar -= list.get(i).getSugar();
                 list.remove(i);
+                break;
+            }
         }
     }
 }
