@@ -2,6 +2,9 @@ package ntou.cs.java2021;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
@@ -53,7 +56,20 @@ public class SearchingDialog extends JDialog implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btSearch) {
-            
+            try {
+                //use
+                FoodHandler handler = new FoodHandler();
+                handler.initialize();
+                List<Pharmacy> filteredClinicList = handler.findPharmacies(tfFood.getText());
+                FoodDataHandler foodlist = new FoodDataHandler(filteredClinicList);
+                //use
+                for(FoodData i : foodlist.getFoodList()) {
+                    System.out.println(i);
+                }
+            } catch (IOException | URISyntaxException f) {
+                // TODO Auto-generated catch block
+                System.err.println(f);
+            }
 
 
 
