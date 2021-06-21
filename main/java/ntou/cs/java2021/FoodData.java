@@ -1,8 +1,5 @@
 package ntou.cs.java2021;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class FoodData {
     private String name;
     private double calories;
