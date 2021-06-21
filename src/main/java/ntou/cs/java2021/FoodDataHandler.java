@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FoodDataHandler {
-    private List<FoodData> foodList;
+    private List<FoodData> foodList;//索引到的所有食物
 
     public List<FoodData> getFoodList() {
         return foodList;

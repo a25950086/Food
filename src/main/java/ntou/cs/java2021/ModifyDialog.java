@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-//import javax.swing.JComboBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -34,8 +34,8 @@ public class ModifyDialog extends JDialog implements ActionListener {
     private JTextField tfHeight = new JTextField(Conf.height, 10);
     private JLabel lbWeight = new JLabel("請您修改體重");
     private JTextField tfWeight = new JTextField(Conf.weight, 10);
-    /*private JLabel lbFood = new JLabel("請您修改食物");
-    private JTextField cbFood = new JTextField(Conf.food,10);*/
+    private JLabel lbFood = new JLabel("請您修改食物");
+    private JTextField cbFood = new JTextField(Conf.food,10);
 
     private JButton btModify = new JButton("修改");
     private JButton btExit = new JButton("關閉");
@@ -43,7 +43,7 @@ public class ModifyDialog extends JDialog implements ActionListener {
     public ModifyDialog(JFrame frm) {
         /***********************界面初始化***************************/
         super(frm, true);
-        this.setLayout(new GridLayout(9, 1));
+        this.setLayout(new GridLayout(10, 1));
         this.add(lbMsg);
         this.add(lbAccount);
         this.add(lbPassword);
@@ -60,8 +60,8 @@ public class ModifyDialog extends JDialog implements ActionListener {
         this.add(tfWeight);
         this.add(lbHeight);
         this.add(tfHeight);
-        /*this.add(lbFood);
-        this.add(cbFood);*/
+        this.add(lbFood);
+        this.add(cbFood);
         /*cbFood.addItem("財務部");
         cbFood.addItem("行政部");
         cbFood.addItem("客戶服務部");
@@ -93,7 +93,7 @@ public class ModifyDialog extends JDialog implements ActionListener {
             String age = tfAge.getText();
             String height = tfHeight.getText();
             String weight = tfWeight.getText();
-            //String food = (String) cbFood.getText();
+            String food = (String) cbFood.getText();
             //將新的值存入靜態變量
             Conf.password = password1;
             Conf.name = name;
@@ -101,7 +101,8 @@ public class ModifyDialog extends JDialog implements ActionListener {
             Conf.age = age;
             Conf.height = height;
             Conf.weight = weight;
-            FileOpe.updateCustomer(Conf.account, password1, name, gender, age, height, weight);
+            Conf.food = food;
+            FileOpe.updateCustomer(Conf.account, password1, name, gender, age, height, weight,food);
 
             JOptionPane.showMessageDialog(this, "修改成功");
         }

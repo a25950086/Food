@@ -29,8 +29,8 @@ public class RegisterFrame extends JFrame implements ActionListener {
     private JTextField tfHeight=new JTextField(10);
     private JLabel lbWeight=new JLabel("請您輸入體重");
     private JTextField tfWeight=new JTextField(10);
-    /*private JLabel lbFood=new JLabel("請您輸入食物");
-    private JTextField cbFood=new JTextField(10);*/
+    private JLabel lbFood=new JLabel("請您輸入食物");
+    private JTextField tfFood=new JTextField(10);
 
     private JButton btRegister=new JButton("註冊");
     private JButton btLogin=new JButton("登錄");
@@ -55,12 +55,12 @@ public class RegisterFrame extends JFrame implements ActionListener {
         this.add(tfHeight);
         this.add(lbWeight);
         this.add(tfWeight);
-        /*this.add(lbFood);
-        this.add(cbFood);*/
-        /*cbDept.addItem("財務部");
-        cbDept.addItem("行政部");
-        cbDept.addItem("客服服務部");
-        cbDept.addItem("銷售部");*/
+        this.add(lbFood);
+        this.add(tfFood);
+        /*cbFood.addItem("財務部");
+        cbFood.addItem("行政部");
+        cbFood.addItem("客服服務部");
+        cbFood.addItem("銷售部");*/
         this.add(btRegister);
         this.add(btLogin);
         this.add(btExit);
@@ -93,7 +93,10 @@ public class RegisterFrame extends JFrame implements ActionListener {
             String age=(String)tfAge.getText();
             String height=(String)tfHeight.getText();
             String weight=(String)tfWeight.getText();
-            FileOpe.updateCustomer(account,password1,name,gender,age,height,weight);
+
+            String food=(String)tfFood.getText();
+
+            FileOpe.updateCustomer(account,password1,name,gender,age,height,weight,food);
             JOptionPane.showMessageDialog(this,"註冊成功");
         }
         else if(e.getSource()==btLogin) {

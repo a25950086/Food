@@ -54,10 +54,11 @@ public class FileOpe {
             Conf.age=infos[3];
             Conf.height=infos[4];
             Conf.weight=infos[5];
+            Conf.food=infos[6];
         }
     }
-    public static void updateCustomer(String account,String password,String name,String gender,String age,String height,String weight) {
-        pps.setProperty(account,password+"#"+name+"#"+gender+"#"+age+"#"+height+"#"+weight);
+    public static void updateCustomer(String account,String password,String name,String gender,String age,String height,String weight,String food) {
+        pps.setProperty(account,password+"#"+name+"#"+gender+"#"+age+"#"+height+"#"+weight+"#"+food);
         listInfo();
     }
 }
