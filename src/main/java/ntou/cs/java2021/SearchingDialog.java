@@ -65,6 +65,7 @@ public class SearchingDialog extends JDialog implements ActionListener{
             //String foodKeyword = tfFood.getText();
             try {
                 //use
+                cbFood.removeAllItems();
                 FoodHandler handler = new FoodHandler();
                 handler.initialize();
                 List<Pharmacy> filteredClinicList = handler.findPharmacies(tfFood.getText());

@@ -66,14 +66,10 @@ public class FileOpe {
     }
     public static void addFood(String account, String password, String name, String gender, String age, String height, String weight, String food, List<FoodData> addFood){
 
-        pps.setProperty(account,password+"#"+name+"#"+gender+"#"+age+"#"+height+"#"+weight+"#"+food+"#"+addFood);
+        pps.setProperty(account,"#"+password+"#"+name+"#"+gender+"#"+age+"#"+height+"#"+weight+"#"+food+addFood);
         listInfo();
     }
-    public static void addFood(String Food){
-        String i = "#";
-        pps.setProperty(i,Food);
-        listInfo();
-    }
+
 }
 //ps：本類中，靜態代碼塊中的代碼負責載入cus.inc中的數據
 

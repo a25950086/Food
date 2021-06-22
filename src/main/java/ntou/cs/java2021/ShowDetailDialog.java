@@ -27,8 +27,8 @@ public class ShowDetailDialog extends JDialog implements ActionListener {
     private JLabel lbHeight1 = new JLabel(Conf.height);
     private JLabel lbWeight = new JLabel("體重: ");
     private JLabel lbWeight1 = new JLabel(Conf.weight);
-    private JLabel lbFood = new JLabel("食物: ");
-    private JComboBox cbFood=new JComboBox();
+    //private JLabel lbFood = new JLabel("食物: ");
+    private JButton btFood=new JButton("食物");
 
     private JButton btExit = new JButton("關閉");
 
@@ -48,13 +48,14 @@ public class ShowDetailDialog extends JDialog implements ActionListener {
         this.add(lbWeight1);
         this.add(lbHeight);
         this.add(lbHeight1);
-        this.add(lbFood);
+        /*this.add(lbFood);
         this.add(cbFood);
         /*cbFood.addItem("財務部");
         cbFood.addItem("行政部");
         cbFood.addItem("客戶服務部");
         cbFood.addItem("銷售部");
         cbFood.setSelectedItem(Conf.food);*/
+        this.add(btFood);
         this.add(btExit);
         this.setSize(240, 300);
         GUIUtil.toCenter(this);
@@ -66,9 +67,11 @@ public class ShowDetailDialog extends JDialog implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        DailyEnergyRecoder i = new DailyEnergyRecoder();
+        if(e.getSource()==btFood){
+            new FoofListFrame();
+        }
 
-        cbFood.addItem(i.getList());
+
         this.dispose();
     }
 }
