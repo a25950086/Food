@@ -7,7 +7,6 @@ import java.util.List;
 import java.text.SimpleDateFormat;
 
 public class DailyEnergyRecoder {
-    private String date;
     private List<FoodData> list;
     private double calories;
     private double protein;
@@ -17,8 +16,8 @@ public class DailyEnergyRecoder {
     private double transFat;
     private double sugar;
 
-    public String getDate() {
-        return date;
+    public List<FoodData> getList() {
+        return list;
     }
 
     public double getCalories() {
@@ -76,8 +75,7 @@ public class DailyEnergyRecoder {
     public void setSugar(double sugar) {
         this.sugar = sugar;
     }
-    public DailyEnergyRecoder(String date){
-        this.date = date;
+    public DailyEnergyRecoder(){
         this.calories = 0;
         this.protein = 0;
         this.carbohydrates = 0;

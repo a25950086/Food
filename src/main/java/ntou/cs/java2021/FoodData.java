@@ -102,15 +102,6 @@ public class FoodData {
 
     @Override
     public String toString() {
-        return "foodData{" +
-                "name='" + name + '\'' +
-                ", calories=" + calories +
-                ", protein=" + protein +
-                ", carbohydrates=" + carbohydrates +
-                ", fat=" + fat +
-                ", saturatedFat=" + saturatedFat +
-                ", transFat=" + transFat +
-                ", sugar=" + sugar +
-                '}';
+        return name;
     }
 }

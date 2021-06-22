@@ -14,14 +14,18 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+
 /*搜尋並新增食物界面*/
 public class SearchingDialog extends JDialog implements ActionListener{
+    private FoodDataHandler foodlist;
+    private DailyEnergyRecoder food;
     private JLabel lbMsg = new JLabel("您的帳號為：");
     private JLabel lbAccount = new JLabel(Conf.account);
-    private JLabel lbFood = new JLabel("請您搜尋食物");
-    private JTextField tfFood=new JTextField(10);
+    private JLabel lbFood = new JLabel("請您搜尋食物關鍵字");
+    public JTextField tfFood=new JTextField(10);
     private JButton btSearch = new JButton("搜尋");
     private JComboBox cbFood=new JComboBox();
+
     //private JTextField cbFood = new JTextField(Conf.food,10);
 
     private JButton btAdd = new JButton("新增");
@@ -36,11 +40,12 @@ public class SearchingDialog extends JDialog implements ActionListener{
         this.add(tfFood);
         this.add(btSearch);
         this.add(cbFood);
+        food = new DailyEnergyRecoder();
         /*cbFood.addItem("財務部");
         cbFood.addItem("行政部");
         cbFood.addItem("客戶服務部");
         cbFood.addItem("銷售部");*/
-        cbFood.setSelectedItem(Conf.food);
+        //cbFood.setSelectedItem(Conf.food);
         this.add(btAdd);
         this.add(btExit);
         this.setSize(240, 300);
@@ -55,22 +60,28 @@ public class SearchingDialog extends JDialog implements ActionListener{
     }
     @Override
     public void actionPerformed(ActionEvent e) {
+
         if (e.getSource() == btSearch) {
+            //String foodKeyword = tfFood.getText();
             try {
                 //use
                 FoodHandler handler = new FoodHandler();
                 handler.initialize();
                 List<Pharmacy> filteredClinicList = handler.findPharmacies(tfFood.getText());
-                FoodDataHandler foodlist = new FoodDataHandler(filteredClinicList);
+                foodlist = new FoodDataHandler(filteredClinicList);
                 //use
                 for(FoodData i : foodlist.getFoodList()) {
-                    System.out.println(i);
+                    //System.out.println(i);
+                    cbFood.addItem(i.getName());
                 }
             } catch (IOException | URISyntaxException f) {
                 // TODO Auto-generated catch block
                 System.err.println(f);
-            }
 
+            }
+            cbFood.setSelectedItem(Conf.food);
+            String food = (String) cbFood.getSelectedItem();
+            //JTextField tfFood=new JTextField(food);
 
 
             /*String password1 = new String(pfPassword.getPassword());
@@ -85,7 +96,7 @@ public class SearchingDialog extends JDialog implements ActionListener{
             String age = tfAge.getText();
             String height = tfHeight.getText();
             String weight = tfWeight.getText();*/
-            String weight = tfFood.getText();
+            //String weight = tfFood.getText();
             //String food = (String) cbFood.getText();
             //將新的值存入靜態變量
             /*Conf.password = password1;
@@ -97,6 +108,26 @@ public class SearchingDialog extends JDialog implements ActionListener{
             FileOpe.updateCustomer(Conf.account, password1, name, gender, age, height, weight);
 
             JOptionPane.showMessageDialog(this, "修改成功");*/
+        }
+        else if(e.getSource()==btAdd){
+            String Food = (String) cbFood.getSelectedItem();
+            if (foodlist != null) {
+
+
+                for (FoodData i : foodlist.getFoodList()) {
+                    if(i.getName().equals(Food)){
+                        food.add(i);
+                        break;
+                    }
+                }
+
+                FileOpe.addFood(Conf.account,Conf.password,Conf.name,Conf.gender,Conf.age,Conf.height,Conf.weight,Conf.food,food.getList());
+
+                JOptionPane.showMessageDialog(this, "新增成功");
+            }
+            else {
+                JOptionPane.showMessageDialog(this, "新增失敗");
+            }
         }
         else{
             this.dispose();
