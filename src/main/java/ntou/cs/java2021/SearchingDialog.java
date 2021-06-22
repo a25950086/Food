@@ -80,7 +80,6 @@ public class SearchingDialog extends JDialog implements ActionListener{
                 System.err.println(f);
 
             }
-            cbFood.setSelectedItem(Conf.food);
             String food = (String) cbFood.getSelectedItem();
             //JTextField tfFood=new JTextField(food);
 
@@ -122,7 +121,7 @@ public class SearchingDialog extends JDialog implements ActionListener{
                     }
                 }
 
-                FileOpe.addFood(Conf.account,Conf.password,Conf.name,Conf.gender,Conf.age,Conf.height,Conf.weight,Conf.food,food.getList());
+                FileOpe.addFood(Conf.account,Conf.password,Conf.name,Conf.gender,Conf.age,Conf.height,Conf.weight,food.getList());
 
                 JOptionPane.showMessageDialog(this, "新增成功");
             }

@@ -77,6 +77,16 @@ public class FoodData {
         this.sugar = sugar;
     }
 
+    public FoodData(){
+        this.name = "";
+        this.calories = 0;
+        this.protein = 0;
+        this.carbohydrates = 0;
+        this.fat = 0;
+        this.saturatedFat = 0;
+        this.transFat = 0;
+        this.sugar = 0;
+    }
     public FoodData(Pharmacy pharmacy){
         this.name = pharmacy.getName();
         String temp, type;

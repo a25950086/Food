@@ -1,6 +1,7 @@
 package ntou.cs.java2021;
 import java.io.FileReader;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import javax.swing.JOptionPane;
@@ -55,7 +56,6 @@ public class FileOpe {
             Conf.age=infos[3];
             Conf.height=infos[4];
             Conf.weight=infos[5];
-            Conf.food=infos[6];
         }
 
     }
@@ -64,10 +64,42 @@ public class FileOpe {
         listInfo();
 
     }
-    public static void addFood(String account, String password, String name, String gender, String age, String height, String weight, String food, List<FoodData> addFood){
+    public static void addFood(String account, String password, String name, String gender, String age, String height, String weight, List<FoodData> addFood){
 
-        pps.setProperty(account,"#"+password+"#"+name+"#"+gender+"#"+age+"#"+height+"#"+weight+"#"+food+addFood);
+        pps.setProperty(account,"#"+password+"#"+name+"#"+gender+"#"+age+"#"+height+"#"+weight+addFood);
         listInfo();
+    }
+
+    public static UserData getUserData(String account){
+        UserData userData;
+        String cusInfo=pps.getProperty(account);
+        String[] infos = cusInfo.split("#");
+        userData = new UserData(infos[2], Double.valueOf(infos[3]), Double.valueOf(infos[4]), Double.valueOf(infos[5]));
+        return userData;
+    }
+
+    public static List<FoodData> getFood(String account){
+        List<FoodData> foodDataList = new ArrayList<>();
+        FoodData temp;
+        String cusInfo=pps.getProperty(account);
+        if(cusInfo!=null) {
+            String[] infos=cusInfo.split("#");
+            String[] foodInfos;
+            for(int i=6; i<infos.length; i++){
+                temp = new FoodData();
+                foodInfos = infos[i].split(" ");
+                temp.setName(foodInfos[0]);
+                temp.setCalories(Double.valueOf(foodInfos[1]));
+                temp.setProtein(Double.valueOf(foodInfos[2]));
+                temp.setCarbohydrates(Double.valueOf(foodInfos[3]));
+                temp.setFat(Double.valueOf(foodInfos[4]));
+                temp.setSaturatedFat(Double.valueOf(foodInfos[5]));
+                temp.setTransFat(Double.valueOf(foodInfos[6]));
+                temp.setSugar(Double.valueOf(foodInfos[7]));
+                foodDataList.add(temp);
+            }
+        }
+        return  foodDataList;
     }
 
 }

@@ -1,7 +1,7 @@
 package ntou.cs.java2021;
 
 public class UserData {
-    private double gender;
+    private String gender;
     private double age;
     private double height;
     private double weight;
@@ -13,11 +13,11 @@ public class UserData {
     private double needTransFat;
     private double needSugar;
 
-    public void setGender(double gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
-    public double getGender() {
+    public String getGender() {
         return gender;
     }
 
@@ -73,12 +73,12 @@ public class UserData {
         return needSugar;
     }
 
-    public UserData(double gender, double age, double height, double weight){
+    public UserData(String gender, double age, double height, double weight){
         this.gender = gender;
         this.age = age;
         this.height = height;
         this.weight = weight;
-        if(gender == 1)
+        if(gender == "男")
             this.needCalories = 13.397 * weight + 4.799 * height - 5.677 * age + 88.362;
         else
             this.needCalories = 9.247 * weight + 3.098 * height - 4.330 * age + 447.593;

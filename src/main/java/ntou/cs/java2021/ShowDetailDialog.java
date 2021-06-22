@@ -68,7 +68,7 @@ public class ShowDetailDialog extends JDialog implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==btFood){
-            new FoofListFrame();
+            new FoodListFrame();
         }
 
 

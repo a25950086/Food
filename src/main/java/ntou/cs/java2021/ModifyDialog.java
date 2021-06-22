@@ -35,8 +35,6 @@ public class ModifyDialog extends JDialog implements ActionListener {
     private JTextField tfHeight = new JTextField(Conf.height, 10);
     private JLabel lbWeight = new JLabel("請您修改體重");
     private JTextField tfWeight = new JTextField(Conf.weight, 10);
-    private JLabel lbFood = new JLabel("請您修改食物");
-    private JComboBox cbFood=new JComboBox();
     //private JTextField cbFood = new JTextField(Conf.food,10);
 
     private JButton btModify = new JButton("修改");
@@ -62,8 +60,6 @@ public class ModifyDialog extends JDialog implements ActionListener {
         this.add(tfWeight);
         this.add(lbHeight);
         this.add(tfHeight);
-        this.add(lbFood);
-        this.add(cbFood);
         /*cbFood.addItem("財務部");
         cbFood.addItem("行政部");
         cbFood.addItem("客戶服務部");
