@@ -4,7 +4,7 @@ import java.io.PrintStream;
 import java.util.Properties;
 import javax.swing.JOptionPane;
 
-/*數據保存在「cus.inc」中，以「帳號=密碼#姓名#部門」的格式保存，
+/*數據保存在「cus.inc」中，以「帳號=密碼#姓名#性別#年齡#身高#體重#食物」的格式保存，
 便於Properties類來讀。讀文件類為FileOpe。負責讀文件，將信息保存到文件中*/
 public class FileOpe {
     private static String fileName="cus.inc";
@@ -56,9 +56,15 @@ public class FileOpe {
             Conf.weight=infos[5];
             Conf.food=infos[6];
         }
+
     }
     public static void updateCustomer(String account,String password,String name,String gender,String age,String height,String weight,String food) {
         pps.setProperty(account,password+"#"+name+"#"+gender+"#"+age+"#"+height+"#"+weight+"#"+food);
+        listInfo();
+    }
+    public static void addFood(String Food){
+        String i = "#";
+        pps.setProperty(i,Food);
         listInfo();
     }
 }
