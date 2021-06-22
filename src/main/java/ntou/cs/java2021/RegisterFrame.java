@@ -1,5 +1,5 @@
 package ntou.cs.java2021;
-import java.awt.FlowLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -21,7 +21,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
     private JPasswordField pfPassword2=new JPasswordField(10);
     private JLabel lbName=new JLabel("請您輸入姓名");
     private JTextField tfName=new JTextField(10);
-    private JLabel lbGender=new JLabel("請您輸入性別");
+    private JLabel lbGender=new JLabel("請您輸入性別(male/female)");
     private JTextField tfGender=new JTextField(10);
     private JLabel lbAge=new JLabel("請您輸入年齡");
     private JTextField tfAge=new JTextField(10);
@@ -36,7 +36,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
     public RegisterFrame() {
         /******************界面初始化********************/
         super("註冊");
-        this.setLayout(new FlowLayout());
+        this.setLayout(new GridLayout(10, 1));
         this.add(lbAccount);
         this.add(tfAccount);
         this.add(lbPassword);
@@ -56,7 +56,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
         this.add(btRegister);
         this.add(btLogin);
         this.add(btExit);
-        this.setSize(240,300);
+        this.setSize(360,300);
         GUIUtil.toCenter(this);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);

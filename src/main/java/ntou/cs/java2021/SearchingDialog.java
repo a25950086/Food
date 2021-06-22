@@ -18,7 +18,7 @@ import javax.swing.JTextField;
 /*搜尋並新增食物界面*/
 public class SearchingDialog extends JDialog implements ActionListener{
     private FoodDataHandler foodlist;
-    private DailyEnergyRecoder food;
+    private static DailyEnergyRecoder food;
     private JLabel lbMsg = new JLabel("您的帳號為：");
     private JLabel lbAccount = new JLabel(Conf.account);
     private JLabel lbFood = new JLabel("請您搜尋食物關鍵字");
@@ -30,6 +30,10 @@ public class SearchingDialog extends JDialog implements ActionListener{
 
     private JButton btAdd = new JButton("新增");
     private JButton btExit = new JButton("關閉");
+
+    public static DailyEnergyRecoder getFood() {
+        return food;
+    }
 
     public SearchingDialog(JFrame frm) {
         super(frm, true);

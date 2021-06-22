@@ -40,7 +40,6 @@ public class FoodListFrame extends JDialog implements ActionListener{
     private JLabel needTransFat;
     private JLabel needSugar;
 
-    private JButton btDelete;
     private JButton btExit;
 
     public FoodListFrame(JFrame jFrame){
@@ -54,13 +53,12 @@ public class FoodListFrame extends JDialog implements ActionListener{
             foods.addItem(list.get(i).getName());
         }
         foodPanel.add(foods);
-        btDelete = new JButton("刪除此項紀錄");
-        foodPanel.add(btDelete);
         btExit = new JButton("離開");
         foodPanel.add(btExit);
         this.add(foodPanel);
 
         typePanel = new JPanel();
+        typePanel.setLayout(new GridLayout(1, 6));
         Calories = new JLabel("卡路里(單位:千卡)");
         Protein = new JLabel("蛋白質(單位:克)");
         Carbohydrates = new JLabel("碳水化合物(單位:克)");
@@ -79,13 +77,14 @@ public class FoodListFrame extends JDialog implements ActionListener{
 
 
         havePanel = new JPanel();
-        haveCalories = new JLabel();
-        haveProtein = new JLabel();
-        haveCarbohydrates = new JLabel();
-        haveFat = new JLabel();
-        haveSaturatedFat = new JLabel();
-        haveTransFat = new JLabel();
-        haveSugar = new JLabel();
+        havePanel.setLayout(new GridLayout(1, 6));
+        haveCalories = new JLabel(String.valueOf(SearchingDialog.getFood().getCalories()));
+        haveProtein = new JLabel(String.valueOf(SearchingDialog.getFood().getProtein()));
+        haveCarbohydrates = new JLabel(String.valueOf(SearchingDialog.getFood().getCarbohydrates()));
+        haveFat = new JLabel(String.valueOf(SearchingDialog.getFood().getFat()));
+        haveSaturatedFat = new JLabel(String.valueOf(SearchingDialog.getFood().getSaturatedFat()));
+        haveTransFat = new JLabel(String.valueOf(SearchingDialog.getFood().getTransFat()));
+        haveSugar = new JLabel(String.valueOf(SearchingDialog.getFood().getSugar()));
         havePanel.add(haveCalories);
         havePanel.add(haveProtein);
         havePanel.add(haveCarbohydrates);
@@ -97,6 +96,7 @@ public class FoodListFrame extends JDialog implements ActionListener{
 
         UserData userData = FileOpe.getUserData(account);
         needPanel = new JPanel();
+        needPanel.setLayout(new GridLayout(1, 6));
         needCalories = new JLabel(String.valueOf(userData.getNeedCalories()));
         needProtein = new JLabel(String.valueOf(userData.getNeedProtein()));
         needCarbohydrates = new JLabel(String.valueOf(userData.getNeedCarbohydrates()));
@@ -113,20 +113,16 @@ public class FoodListFrame extends JDialog implements ActionListener{
         needPanel.add(needSugar);
         this.add(needPanel);
 
-        btDelete.addActionListener(this);
         btExit.addActionListener(this);
 
-        this.setSize(240, 300);
+        this.setSize(800, 400);
         GUIUtil.toCenter(this);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setResizable(false);
+        this.setVisible(true);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == btDelete){
-
-        }
-        else{
-            this.dispose();
-        }
+        this.dispose();
     }
 }

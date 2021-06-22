@@ -65,8 +65,11 @@ public class FileOpe {
 
     }
     public static void addFood(String account, String password, String name, String gender, String age, String height, String weight, List<FoodData> addFood){
-
-        pps.setProperty(account,"#"+password+"#"+name+"#"+gender+"#"+age+"#"+height+"#"+weight+addFood);
+        String temp = "";
+        for(FoodData i : addFood){
+            temp += i.toString().substring(0, i.toString().length() - 1);
+        }
+        pps.setProperty(account,"#"+password+"#"+name+"#"+gender+"#"+age+"#"+height+"#"+weight+temp);
         listInfo();
     }
 
@@ -74,7 +77,7 @@ public class FileOpe {
         UserData userData;
         String cusInfo=pps.getProperty(account);
         String[] infos = cusInfo.split("#");
-        userData = new UserData(infos[2], Double.valueOf(infos[3]), Double.valueOf(infos[4]), Double.valueOf(infos[5]));
+        userData = new UserData(infos[3], Double.valueOf(infos[4]), Double.valueOf(infos[5]), Double.valueOf(infos[6]));
         return userData;
     }
 
@@ -85,7 +88,7 @@ public class FileOpe {
         if(cusInfo!=null) {
             String[] infos=cusInfo.split("#");
             String[] foodInfos;
-            for(int i=6; i<infos.length; i++){
+            for(int i=7; i<infos.length; i++){
                 temp = new FoodData();
                 foodInfos = infos[i].split(" ");
                 temp.setName(foodInfos[0]);

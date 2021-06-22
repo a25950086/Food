@@ -13,6 +13,7 @@ public class OperationFrame extends JFrame implements ActionListener {
     private JLabel lblWelcome=new JLabel(welcomMsg);
 
     private JButton btSearch=new JButton("搜尋並新增食物");
+    private JButton btFood=new JButton("顯示今日進食狀況");
     private JButton btQuery=new JButton("顯示詳細信息");
     private JButton btModify=new JButton("修改個人資料");
     private JButton btExit=new JButton("退出");
@@ -22,6 +23,7 @@ public class OperationFrame extends JFrame implements ActionListener {
         this.setLayout(new GridLayout(5,1));
         this.add(lblWelcome);
         this.add(btSearch);
+        this.add(btFood);
         this.add(btQuery);
         this.add(btModify);
         this.add(btExit);
@@ -32,6 +34,7 @@ public class OperationFrame extends JFrame implements ActionListener {
         this.setVisible(true);
         /**********************增加監聽*******************************/
         btSearch.addActionListener(this);
+        btFood.addActionListener(this);
         btQuery.addActionListener(this);
         btModify.addActionListener(this);
         btExit.addActionListener(this);
@@ -54,6 +57,12 @@ public class OperationFrame extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(this,message);
             JComboBox cbFood=new JComboBox();*/
             new ShowDetailDialog(this);
+        }
+        else if(e.getSource() == btFood){
+            if(SearchingDialog.getFood() != null)
+                new FoodListFrame(this);
+            else
+                JOptionPane.showMessageDialog(this,"今天尚未紀錄");
         }
         else if(e.getSource()==btModify) {
             new ModifyDialog(this);
