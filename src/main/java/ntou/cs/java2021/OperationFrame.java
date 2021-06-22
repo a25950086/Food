@@ -3,16 +3,15 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.management.Query;
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import javax.swing.JComboBox;
 
 /*操作界面*/
 public class OperationFrame extends JFrame implements ActionListener {
     /************************定義各控制項******************************/
     private String welcomMsg="選擇如下操作:";
     private JLabel lblWelcome=new JLabel(welcomMsg);
+
     private JButton btSearch=new JButton("搜尋並新增食物");
     private JButton btQuery=new JButton("顯示詳細信息");
     private JButton btModify=new JButton("修改個人資料");
@@ -43,7 +42,7 @@ public class OperationFrame extends JFrame implements ActionListener {
         }
 
         else if(e.getSource()==btQuery) {
-            String message="您的詳細資料為:\n";
+           /* String message="您的詳細資料為:\n";
             message+="帳號："+Conf.account+"\n";
             message+="姓名："+Conf.name+"\n";
             message+="性別(男/女)："+Conf.gender+"\n";
@@ -51,8 +50,10 @@ public class OperationFrame extends JFrame implements ActionListener {
             message+="身高："+Conf.height+"(cm)"+"\n";
             message+="體重："+Conf.weight+"(kg)"+"\n";
 
-            message+="食物："+Conf.food+"\n";
+            //message+="食物："+Conf.food+"\n";
             JOptionPane.showMessageDialog(this,message);
+            JComboBox cbFood=new JComboBox();*/
+            new ShowDetailDialog(this);
         }
         else if(e.getSource()==btModify) {
             new ModifyDialog(this);
