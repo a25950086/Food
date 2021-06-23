@@ -100,7 +100,7 @@ public class ModifyDialog extends JDialog implements ActionListener {
             Conf.height = height;
             Conf.weight = weight;
             //Conf.food = food;
-            FileOpe.updateCustomer(Conf.account, password1, name, gender, age, height, weight);
+            FileOpe.updateCustomer(Conf.account, password1, name, gender, age, height, weight, SearchingDialog.getFood().getList());
 
             JOptionPane.showMessageDialog(this, "修改成功");
         }

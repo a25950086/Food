@@ -88,7 +88,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
 
             //String food=(String)tfFood.getText();
 
-            FileOpe.updateCustomer(account,password1,name,gender,age,height,weight);
+            FileOpe.updateCustomer(account,password1,name,gender,age,height,weight, null);
             JOptionPane.showMessageDialog(this,"註冊成功");
         }
         else if(e.getSource()==btLogin) {

@@ -59,16 +59,28 @@ public class FileOpe {
         }
 
     }
-    public static void updateCustomer(String account,String password,String name,String gender,String age,String height,String weight) {
-        pps.setProperty(account,password+"#"+name+"#"+gender+"#"+age+"#"+height+"#"+weight);
-        listInfo();
+    public static void updateCustomer(String account,String password,String name,String gender,String age,String height,String weight, List<FoodData> foodDataList) {
+        if(foodDataList==null){
+            pps.setProperty(account, password + "#" + name + "#" + gender + "#" + age + "#" + height + "#" + weight);
+        }
+        else {
+            String temp = "";
+            for (int i=0; i<foodDataList.size()-1; i++) {
+                temp += foodDataList.get(i).toString().substring(0, foodDataList.get(i).toString().length() - 1);
+            }
+            temp += foodDataList.get(foodDataList.size()-1).toString().substring(0, foodDataList.get(foodDataList.size()-1).toString().length());
 
+            pps.setProperty(account, password + "#" + name + "#" + gender + "#" + age + "#" + height + "#" + weight + temp);
+            listInfo();
+        }
     }
     public static void addFood(String account, String password, String name, String gender, String age, String height, String weight, List<FoodData> addFood){
         String temp = "";
-        for(FoodData i : addFood){
-            temp += i.toString().substring(0, i.toString().length() - 1);
+        for (int i=0; i<addFood.size()-1; i++) {
+            temp += addFood.get(i).toString().substring(0, addFood.get(i).toString().length() - 1);
         }
+        temp += addFood.get(addFood.size()-1).toString().substring(0, addFood.get(addFood.size()-1).toString().length());
+
         pps.setProperty(account,"#"+password+"#"+name+"#"+gender+"#"+age+"#"+height+"#"+weight+temp);
         listInfo();
     }
